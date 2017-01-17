@@ -4,7 +4,7 @@ baseCommand: perl
 inputs:
   command:
     type: File
-    doc: Program that uses EBI's ncbi blast web interface
+    doc: Program that uses EBI's NCBI BLAST web interface
     inputBinding:
       position: 0
     default:
@@ -40,9 +40,15 @@ inputs:
     inputBinding:
       prefix: --sequence
     default: 'uniprot:wap_rat'
+  outformat:
+    type: string
+    doc: Format of the output
+    inputBinding:
+      prefix: --outformat
+    default: 'ids'
   outfile:
     type: string
-    doc: use stdout
+    doc: Output file, use stdout by default.
     inputBinding:
       prefix: --outfile
     default: '-'
