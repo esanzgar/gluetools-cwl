@@ -52,6 +52,12 @@ inputs:
     inputBinding:
       prefix: --outfile
     default: '-'
+  quiet:
+    type: boolean
+    doc: whether info about the running process should be printed or not
+    inputBinding:
+      prefix: --quiet
+    default: true
 
 outputs:
   result:
