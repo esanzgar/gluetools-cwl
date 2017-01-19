@@ -21,6 +21,7 @@ inputs:
     doc: Alignment to tree.
     inputBinding:
       prefix: --sequence
+      position: 1
   outformat:
     type: string
     doc: Format of the output
