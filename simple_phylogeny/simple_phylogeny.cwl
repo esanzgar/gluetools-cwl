@@ -16,9 +16,9 @@ inputs:
     inputBinding:
       prefix: --email
     default: 'workbench@ebi.ac.uk'
-  sequence:
+  alignment:
     type: File
-    doc: Sequence to blast.
+    doc: Alignment to tree.
     inputBinding:
       prefix: --sequence
     default:
@@ -44,5 +44,5 @@ inputs:
     default: true
 
 outputs:
-  result:
+  tree:
     type: stdout

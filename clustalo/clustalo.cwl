@@ -28,7 +28,7 @@ inputs:
     inputBinding:
       prefix: --outfile
     default: '-'
-  sequence:
+  sequences:
     type: File
     format: http://edamontology.org/format_1929 # FASTA
     doc: Sequences to alineate.
@@ -45,5 +45,5 @@ inputs:
     default: true
 
 outputs:
-  result:
+  alignment:
     type: stdout

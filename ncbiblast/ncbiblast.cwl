@@ -60,5 +60,5 @@ inputs:
     default: true
 
 outputs:
-  result:
+  proteins:
     type: stdout
