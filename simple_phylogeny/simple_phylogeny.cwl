@@ -21,9 +21,6 @@ inputs:
     doc: Alignment to tree.
     inputBinding:
       prefix: --sequence
-    default:
-      class: File
-      location: 'wap_rat_msa.clustal'
   outformat:
     type: string
     doc: Format of the output

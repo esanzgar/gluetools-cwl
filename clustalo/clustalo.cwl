@@ -34,9 +34,6 @@ inputs:
     doc: Sequences to alineate.
     inputBinding:
       prefix: --sequence
-    default:
-      class: File
-      location: 'wap_rat_sss.fasta'
   quiet:
     type: boolean
     doc: whether info about the running process should be printed or not
