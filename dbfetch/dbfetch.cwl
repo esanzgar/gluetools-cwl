@@ -9,49 +9,35 @@ inputs:
       position: 0
     default:
       class: File
-      location: 'dbfetch.sh'
-  accessions:
-    type: File
-    doc: File with list of proteins' accessions so its sequences can be retrieved.
-    inputBinding:
-      position: 1
-  numberAccessions:
-    type: string
-    doc: Maximum number of records to fetch
-    inputBinding:
-      position: 2
-    default: '20'
-  perl:
-    type: File
-    doc: Program that uses EBI's database fetch web interface
-    inputBinding:
-      position: 3
-    default:
-      class: File
       location: 'dbfetch_lwp.pl'
   method:
     type: string
     doc: Type of command-line interface.
     inputBinding:
-      position: 4
+      position: 1
     default: 'fetchBatch'
   database:
     type: string
     doc: Database to be searched.
     inputBinding:
-      position: 5
+      position: 2
     default: 'uniprot'
+  accessions:
+    type: string
+    doc: List of proteins' accessions so its sequences can be retrieved.
+    inputBinding:
+      position: 3
   outformat:
     type: string
     doc: Format of the output
     inputBinding:
-      position: 6
+      position: 4
     default: 'fasta'
   outstyle:
     type: string
     doc: Style of the output
     inputBinding:
-      position: 7
+      position: 5
     default: 'raw'
 
 outputs:
