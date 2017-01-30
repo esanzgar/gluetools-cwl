@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: sh
+baseCommand: perl
 inputs:
   command:
     type: File
