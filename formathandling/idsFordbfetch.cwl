@@ -21,3 +21,7 @@ inputs:
     inputBinding:
       position: 2
     default: '20'
+
+outputs:
+  accessions:
+    type: stdout
