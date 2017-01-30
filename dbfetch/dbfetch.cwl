@@ -23,9 +23,11 @@ inputs:
       position: 2
     default: 'uniprot'
   accessions:
-    type: string
+    type: File
     doc: List of proteins' accessions so its sequences can be retrieved.
     inputBinding:
+      loadContents: true
+      valueFrom: $(self.contents)
       position: 3
   outformat:
     type: string
