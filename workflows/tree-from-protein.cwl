@@ -2,6 +2,9 @@ cwlVersion: v1.0
 doc: Find the phylogeny tree of proteins related to the one that was input
 class: Workflow
 
+requirements:
+  - class: SubworkflowFeatureRequirement
+
 inputs:
   protein: string?
 
@@ -17,7 +20,7 @@ steps:
     out: [proteins]
 
   sss->msa:
-    run: '../dbfetch/dbfetch.cwl'
+    run: '../workflows/fetch-proteins.cwl'
     in:
       accessions: sss/proteins
     out: [sequences]
