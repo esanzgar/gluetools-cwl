@@ -19,7 +19,7 @@ steps:
     in: []
     out: [proteins]
 
-  sss->msa:
+  sss-msa:
     run: '../workflows/fetch-proteins.cwl'
     in:
       accessions: sss/proteins
@@ -28,7 +28,7 @@ steps:
   msa:
     run: '../clustalo/clustalo.cwl'
     in:
-      sequences: sss->msa/sequences
+      sequences: sss-msa/sequences
     out: [alignment]
 
   phylogeny:
