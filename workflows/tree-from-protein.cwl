@@ -16,7 +16,8 @@ outputs:
 steps:
   sss:
     run: '../ncbiblast/ncbiblast.cwl'
-    in: []
+    in:
+      sequence: protein
     out: [proteins]
 
   sss-msa:
