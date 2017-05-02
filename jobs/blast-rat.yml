@@ -1,4 +1,2 @@
-cwlVersion: v1.0
-
 protein: 'uniprot:wap_rat'
 

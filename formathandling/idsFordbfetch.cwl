@@ -10,9 +10,9 @@ inputs:
     default:
       class: File
       location: 'idsFordbfetch.sh'
-  accessions:
+  accessions_file:
     type: File
-    doc: File with proteins' accessions whose sequences are to be retrieved.
+    doc: File with proteins accessions whose sequences are to be retrieved.
     inputBinding:
       position: 1
   numberAccessions:

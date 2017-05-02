@@ -16,7 +16,7 @@ steps:
   format:
     run: '../formathandling/idsFordbfetch.cwl'
     in:
-      accessions: accessions
+      accessions_file: accessions
     out: [accessions]
 
   fetch:

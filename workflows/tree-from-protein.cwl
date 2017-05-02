@@ -9,7 +9,7 @@ inputs:
   protein: string?
 
 outputs:
-  phylogeny:
+  tree:
     type: File
     outputSource: phylogeny/tree
 
