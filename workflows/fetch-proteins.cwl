@@ -14,13 +14,13 @@ outputs:
 
 steps:
   format:
-    run: '../formathandling/idsFordbfetch.cwl'
+    run: 'https://raw.githubusercontent.com/psafont/gluetools-cwl/0.1.0/formathandling/idsFordbfetch.cwl'
     in:
       accessions_file: accessions
     out: [accessions]
 
   fetch:
-    run: '../dbfetch/dbfetch.cwl'
+    run: 'https://raw.githubusercontent.com/psafont/gluetools-cwl/0.1.0/dbfetch/dbfetch.cwl'
     in:
       accessions: format/accessions
     out: [sequences]
