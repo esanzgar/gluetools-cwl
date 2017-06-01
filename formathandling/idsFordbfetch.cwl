@@ -1,6 +1,9 @@
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: sh
+hints:
+  DockerRequirement:
+    dockerPull: psafont/ebitools:20170601
 inputs:
   command:
     type: File
