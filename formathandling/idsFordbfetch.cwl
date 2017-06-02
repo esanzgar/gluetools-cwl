@@ -12,7 +12,7 @@ inputs:
       position: 0
     default:
       class: File
-      location: 'file:///usr/src/ebitools/idsFordbfetch.sh'
+      location: '/usr/src/ebitools/idsFordbfetch.sh'
   accessions_file:
     type: File
     doc: File with proteins accessions whose sequences are to be retrieved.
