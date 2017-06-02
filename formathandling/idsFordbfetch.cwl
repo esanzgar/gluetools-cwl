@@ -1,10 +1,15 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: idsFordbfetch.sh
+baseCommand: sh
 hints:
   DockerRequirement:
     dockerPull: psafont/ebitools:20170602
 inputs:
+  command:
+    type: string
+    inputBinding:
+      position: 0
+    default: /usr/src/ebitools/idsFordbfetch.sh
   accessions_file:
     type: File
     doc: File with proteins accessions whose sequences are to be retrieved.
