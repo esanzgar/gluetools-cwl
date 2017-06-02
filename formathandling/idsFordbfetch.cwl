@@ -15,7 +15,7 @@ inputs:
     doc: Maximum number of records to fetch
     inputBinding:
       position: 2
-    default: 20
+    default: '20'
 
 outputs:
   accessions:
