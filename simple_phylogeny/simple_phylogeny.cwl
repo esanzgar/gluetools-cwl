@@ -12,7 +12,7 @@ inputs:
       position: 0
     default:
       class: File
-      location: '/usr/src/ebitools/simple_phylogeny_lwp.pl'
+      location: 'simple_phylogeny_lwp.pl'
   email:
     type: string
     doc: Submitter's email.

@@ -12,7 +12,7 @@ inputs:
       position: 0
     default:
       class: File
-      location: '/usr/src/ebitools/clustalo_lwp.pl'
+      location: 'clustalo_lwp.pl'
   email:
     type: string
     doc: Submitter's email.
