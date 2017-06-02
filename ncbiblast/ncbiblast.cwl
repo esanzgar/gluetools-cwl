@@ -30,7 +30,7 @@ inputs:
       prefix: --stype
     default: protein
   sequence:
-    type: string
+    type: string?
     doc: Sequence to blast.
     inputBinding:
       prefix: --sequence

@@ -15,25 +15,25 @@ outputs:
 
 steps:
   sss:
-    run: 'https://raw.githubusercontent.com/psafont/gluetools-cwl/0.2.0/ncbiblast/ncbiblast.cwl'
+    run: '../ncbiblast/ncbiblast.cwl'
     in:
       sequence: protein
     out: [proteins]
 
   sss-msa:
-    run: 'https://raw.githubusercontent.com/psafont/gluetools-cwl/0.2.0/workflows/fetch-proteins.cwl'
+    run: 'fetch-proteins.cwl'
     in:
       accessions: sss/proteins
     out: [sequences]
 
   msa:
-    run: 'https://raw.githubusercontent.com/psafont/gluetools-cwl/0.2.0/clustalo/clustalo.cwl'
+    run: '../clustalo/clustalo.cwl'
     in:
       sequences: sss-msa/sequences
     out: [alignment]
 
   phylogeny:
-    run: 'https://raw.githubusercontent.com/psafont/gluetools-cwl/0.2.0/simple_phylogeny/simple_phylogeny.cwl'
+    run: '../simple_phylogeny/simple_phylogeny.cwl'
     in:
       alignment: msa/alignment
     out: [tree]
