@@ -12,7 +12,7 @@ inputs:
       position: 0
     default:
       class: File
-      location: 'dbfetch_lwp.pl'
+      location: '/usr/src/ebitools/dbfetch_lwp.pl'
   method:
     type: string
     doc: Type of command-line interface.
