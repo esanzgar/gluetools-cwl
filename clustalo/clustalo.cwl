@@ -6,12 +6,12 @@ hints:
     dockerPull: psafont/ebitools:20170601
 inputs:
   command:
-    type: File
+    type: string
     doc: Program that uses EBI's Clustal Omega web interface
     inputBinding:
       position: 0
     default:
-      class: File
+      class: string
       location: 'clustalo_lwp.pl'
   email:
     type: string

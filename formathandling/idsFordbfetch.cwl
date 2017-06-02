@@ -6,12 +6,12 @@ hints:
     dockerPull: psafont/ebitools:20170601
 inputs:
   command:
-    type: File
+    type: string
     doc: Shell script
     inputBinding:
       position: 0
     default:
-      class: File
+      class: string
       location: 'idsFordbfetch.sh'
   accessions_file:
     type: File

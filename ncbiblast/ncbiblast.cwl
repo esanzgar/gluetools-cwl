@@ -6,13 +6,13 @@ hints:
     dockerPull: psafont/ebitools:20170601
 inputs:
   command:
-    type: File
+    type: string
     doc: Program that uses EBI's NCBI BLAST web interface
     inputBinding:
       position: 0
     default:
-      class: File
-      location: ncbiblast_lwp.pl
+      class: string
+      location: 'ncbiblast_lwp.pl'
   email:
     type: string
     doc: Submitter's email.

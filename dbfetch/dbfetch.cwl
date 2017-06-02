@@ -6,12 +6,12 @@ hints:
     dockerPull: psafont/ebitools:20170601
 inputs:
   command:
-    type: File
+    type: string
     doc: Wrapper around dbfetch_lwp.pl
     inputBinding:
       position: 0
     default:
-      class: File
+      class: string
       location: 'dbfetch_lwp.pl'
   method:
     type: string

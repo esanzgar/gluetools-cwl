@@ -6,12 +6,12 @@ hints:
     dockerPull: psafont/ebitools:20170601
 inputs:
   command:
-    type: File
+    type: string
     doc: Program that uses EBI's ClustalW2 Phylogeny's web interface
     inputBinding:
       position: 0
     default:
-      class: File
+      class: string
       location: 'simple_phylogeny_lwp.pl'
   email:
     type: string
