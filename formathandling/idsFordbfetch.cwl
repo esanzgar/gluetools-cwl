@@ -10,9 +10,7 @@ inputs:
     doc: Shell script
     inputBinding:
       position: 0
-    default:
-      class: string
-      location: 'idsFordbfetch.sh'
+    default: 'idsFordbfetch.sh'
   accessions_file:
     type: File
     doc: File with proteins accessions whose sequences are to be retrieved.

@@ -10,9 +10,7 @@ inputs:
     doc: Wrapper around dbfetch_lwp.pl
     inputBinding:
       position: 0
-    default:
-      class: string
-      location: 'dbfetch_lwp.pl'
+    default: 'dbfetch_lwp.pl'
   method:
     type: string
     doc: Type of command-line interface.

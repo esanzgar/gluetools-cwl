@@ -10,9 +10,7 @@ inputs:
     doc: Program that uses EBI's NCBI BLAST web interface
     inputBinding:
       position: 0
-    default:
-      class: string
-      location: 'ncbiblast_lwp.pl'
+    default: 'ncbiblast_lwp.pl'
   email:
     type: string
     doc: Submitter's email.

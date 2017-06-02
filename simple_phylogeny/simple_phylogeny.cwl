@@ -10,9 +10,7 @@ inputs:
     doc: Program that uses EBI's ClustalW2 Phylogeny's web interface
     inputBinding:
       position: 0
-    default:
-      class: string
-      location: 'simple_phylogeny_lwp.pl'
+    default: 'simple_phylogeny_lwp.pl'
   email:
     type: string
     doc: Submitter's email.

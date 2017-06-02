@@ -10,9 +10,7 @@ inputs:
     doc: Program that uses EBI's Clustal Omega web interface
     inputBinding:
       position: 0
-    default:
-      class: string
-      location: 'clustalo_lwp.pl'
+    default: 'clustalo_lwp.pl'
   email:
     type: string
     doc: Submitter's email.
