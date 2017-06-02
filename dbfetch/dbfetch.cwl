@@ -1,31 +1,25 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: perl
+baseCommand: dbfetch_lwp.pl
 hints:
   DockerRequirement:
-    dockerPull: psafont/ebitools:20170601
+    dockerPull: psafont/ebitools:20170602
 inputs:
-  command:
-    type: string
-    doc: Wrapper around dbfetch_lwp.pl
-    inputBinding:
-      position: 0
-    default: 'dbfetch_lwp.pl'
   method:
     type: string
     doc: Type of command-line interface.
     inputBinding:
       position: 1
-    default: 'fetchBatch'
+    default: fetchBatch
   database:
     type: string
     doc: Database to be searched.
     inputBinding:
       position: 2
-    default: 'uniprot'
+    default: uniprot
   accessions:
     type: File
-    doc: List of proteins' accessions so its sequences can be retrieved.
+    doc: List of accessions to be retrieved as sequences.
     inputBinding:
       loadContents: true
       valueFrom: $(self.contents)
@@ -35,13 +29,13 @@ inputs:
     doc: Format of the output
     inputBinding:
       position: 4
-    default: 'fasta'
+    default: fasta
   outstyle:
     type: string
     doc: Style of the output
     inputBinding:
       position: 5
-    default: 'raw'
+    default: raw
 
 outputs:
   sequences:

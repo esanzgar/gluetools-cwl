@@ -1,52 +1,46 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: perl
+baseCommand: ncbiblast_lwp.pl
 hints:
   DockerRequirement:
-    dockerPull: psafont/ebitools:20170601
+    dockerPull: psafont/ebitools:20170602
 inputs:
-  command:
-    type: string
-    doc: Program that uses EBI's NCBI BLAST web interface
-    inputBinding:
-      position: 0
-    default: 'ncbiblast_lwp.pl'
   email:
     type: string
-    doc: Submitter's email.
+    doc: Email of the submitter.
     inputBinding:
       prefix: --email
-    default: 'workbench@ebi.ac.uk'
+    default: workbench@ebi.ac.uk
   program:
     type: string
     doc: Which BLAST program must be used.
     inputBinding:
       prefix: --program
-    default: 'blastp'
+    default: blastp
   database:
     type: string
     doc: Databases to be searched.
     inputBinding:
       prefix: --database
-    default: 'uniprotkb_swissprot'
+    default: uniprotkb_swissprot
   type:
     type: string
     doc: sequence type
     inputBinding:
       prefix: --stype
-    default: 'protein'
+    default: protein
   sequence:
     type: string
     doc: Sequence to blast.
     inputBinding:
       prefix: --sequence
-    default: 'uniprot:wap_rat'
+    default: uniprot:wap_rat
   outformat:
     type: string
     doc: Format of the output
     inputBinding:
       prefix: --outformat
-    default: 'ids'
+    default: ids
   outfile:
     type: string
     doc: Output file, use stdout by default.

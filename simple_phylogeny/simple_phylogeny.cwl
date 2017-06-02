@@ -1,22 +1,16 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: perl
+baseCommand: simple_phylogeny_lwp.pl
 hints:
   DockerRequirement:
-    dockerPull: psafont/ebitools:20170601
+    dockerPull: psafont/ebitools:20170602
 inputs:
-  command:
-    type: string
-    doc: Program that uses EBI's ClustalW2 Phylogeny's web interface
-    inputBinding:
-      position: 0
-    default: 'simple_phylogeny_lwp.pl'
   email:
     type: string
-    doc: Submitter's email.
+    doc: email of the submitter
     inputBinding:
       prefix: --email
-    default: 'workbench@ebi.ac.uk'
+    default: workbench@ebi.ac.uk
   alignment:
     type: File
     doc: Alignment to tree.
@@ -28,7 +22,7 @@ inputs:
     doc: Format of the output
     inputBinding:
       prefix: --outformat
-    default: 'tree'
+    default: tree
   outfile:
     type: string
     doc: Output file, use stdout by default.
