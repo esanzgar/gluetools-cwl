@@ -12,7 +12,7 @@ inputs:
       position: 0
     default:
       class: File
-      location: '/usr/src/ebitools/ncbiblast_lwp.pl'
+      location: 'file:///usr/src/ebitools/ncbiblast_lwp.pl'
   email:
     type: string
     doc: Submitter's email.
