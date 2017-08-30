@@ -21,7 +21,6 @@ steps:
     out: [proteins]
 
   sss-msa:
-<<<<<<< HEAD
     run: 'fetch-proteins.cwl'
       accessions: sss/proteins
     out: [sequences]
