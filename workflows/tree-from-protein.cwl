@@ -22,6 +22,7 @@ steps:
 
   sss-msa:
     run: 'fetch-proteins.cwl'
+    in:
       accessions: sss/proteins
     out: [sequences]
 
