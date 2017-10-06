@@ -7,10 +7,15 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
+  label: UniProt identifier
+  doc: Enter a UniProt identifier
+  default: uniprot:wap_rat
   protein: string?
 
 outputs:
   tree:
+    label: Phylogenetic tree
+    doc: Newick format phylogenetic tree
     type: File
     outputSource: phylogeny/tree
 
