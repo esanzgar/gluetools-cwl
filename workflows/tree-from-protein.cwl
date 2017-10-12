@@ -7,10 +7,11 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  label: UniProt identifier
-  doc: Enter a UniProt identifier
-  default: uniprot:wap_rat
-  protein: string?
+  protein:
+      label: UniProt identifier
+      doc: Enter a UniProt identifier
+      default: uniprot:wap_rat
+      type: string?
 
 outputs:
   tree:
