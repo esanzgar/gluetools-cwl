@@ -1,0 +1,72 @@
+{
+    "class": "Workflow",
+    "cwlVersion": "v1.0",
+    "doc": "Search for similar protein sequences using NCBI BLAST. The 20 top most similar sequences are aligned with Clustal Omega and feed to Simple Phylogeny tool.",
+    "label": "Generate phylogenetic tree",
+    "inputs": [{
+        "id": "protein",
+        "type": "string?",
+        "label": "UniProt identifier",
+        "doc": "Enter a UniProt identifier",
+        "default": "uniprot:wap_rat"
+    }],
+    "outputs": [{
+        "id": "tree",
+        "outputSource": "phylogeny/tree",
+        "type": "File",
+        "label": "Phylogenetic tree",
+        "doc": "Newick format phylogenetic tree"
+    }],
+    "steps": [{
+        "id": "sss",
+        "in": [{
+            "id": "sequence",
+            "source": "protein"
+        }],
+        "out": [{
+            "id": "proteins"
+        }],
+        "run": "https://raw.githubusercontent.com/psafont/gluetools-cwl/master/ncbiblast/ncbiblast.cwl",
+        "label": "NCBI BLAST",
+        "doc": "Sequence similarity search"
+    }, {
+        "id": "sss-msa",
+        "in": [{
+            "id": "accessions",
+            "source": "sss/proteins"
+        }],
+        "out": [{
+            "id": "sequences"
+        }],
+        "run": "https://raw.githubusercontent.com/psafont/gluetools-cwl/master/workflows/fetch-proteins.cwl",
+        "label": "Top 20 similar sequences",
+        "doc": "Use DbFetch to get the 20 top most similar sequences"
+    }, {
+        "id": "msa",
+        "in": [{
+            "id": "sequences",
+            "source": "sss-msa/sequences"
+        }],
+        "out": [{
+            "id": "alignment"
+        }],
+        "run": "https://raw.githubusercontent.com/psafont/gluetools-cwl/master/clustalo/clustalo.cwl",
+        "label": "Clustal Omega",
+        "doc": "Multiple sequence alignment"
+    }, {
+        "id": "phylogeny",
+        "in": [{
+            "id": "alignment",
+            "source": "msa/alignment"
+        }],
+        "out": [{
+            "id": "tree"
+        }],
+        "run": "https://raw.githubusercontent.com/psafont/gluetools-cwl/master/simple_phylogeny/simple_phylogeny.cwl",
+        "label": "Simple Phylogeny",
+        "doc": "Generate phylogeny tree"
+    }],
+    "requirements": [{
+        "class": "SubworkflowFeatureRequirement"
+    }]
+}
