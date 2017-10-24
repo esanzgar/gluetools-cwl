@@ -27,7 +27,7 @@ steps:
     run: '../formathandling/idsFordbfetch.cwl'
     in:
       accessions_file: accessions
-      # numberAccessions: numberAccessions
+      numberAccessions: numberAccessions
     out: [accessions]
 
   fetch:

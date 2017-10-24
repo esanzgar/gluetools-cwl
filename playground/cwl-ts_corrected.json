@@ -1,0 +1,46 @@
+{
+    "class": "Workflow",
+    "cwlVersion": "v1.0",
+    "doc": "My doc",
+    "label": "My labelyy",
+    "requirements" : [{"class": "SubworkflowFeatureRequirement"}],
+    "inputs": [{
+        "id": "protein",
+        "type": "string?",
+        "label": "UniProt ID",
+        "doc": "Enter UniProt identifier",
+        "default": "uniprot:P01038"
+    }],
+    "outputs": [{
+        "id": "result",
+        "outputSource": "filter/sequences",
+        "type": "File",
+        "label": "Filtered sequences",
+        "doc": "Top X sequences"
+    }],
+    "steps": [{
+        "id": "sss",
+        "in": [{
+            "id": "sequence",
+            "source": "protein"
+        }],
+        "out": [{
+            "id": "proteins"
+        }],
+        "run": "https://raw.githubusercontent.com/psafont/gluetools-cwl/master/ncbiblast/ncbiblast.cwl",
+        "label": "NCBI BLAST",
+        "doc": "Sequence similarity search"
+    }, {
+        "id": "filter",
+        "in": [{
+            "id": "accessions",
+            "source": "sss/proteins"
+        }],
+        "out": [{
+            "id": "sequences"
+        }],
+        "run": "https://raw.githubusercontent.com/psafont/gluetools-cwl/master/workflows/fetch-proteins.cwl",
+        "label": "Top 20 sequences",
+        "doc": "Use DbFetch to get the 20 top most similar sequences"
+    }]
+}

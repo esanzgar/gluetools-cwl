@@ -15,7 +15,7 @@ inputs:
       type: string?
 
 outputs:
-  tree:
+  sequences:
     label: List of sequences
     doc: Then top sequences
     type: File
@@ -33,7 +33,7 @@ steps:
   sss-msa:
     label: Top 20 similar sequences
     doc: Use DbFetch to get the 20 top most similar sequences
-    run: '../workflows/fetch-proteins.cwl'
+    run: https://raw.githubusercontent.com/psafont/gluetools-cwl/master/workflows/fetch-proteins.cwl
     in:
       accessions: sss/proteins
       numberAccessions:
