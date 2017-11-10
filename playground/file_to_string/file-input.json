@@ -1,0 +1,54 @@
+{
+    "class": "Workflow",
+    "cwlVersion": "v1.0",
+    "doc": "My doc",
+    "label": "My label",
+    "requirements": [{
+        "class": "SubworkflowFeatureRequirement"
+    }, {
+        "class": "MultipleInputFeatureRequirement"
+    }, {
+        "class": "StepInputExpressionRequirement"
+    }, {
+        "class": "InlineJavascriptRequirement"
+    }],
+    "inputs": [{
+        "id": "protein",
+        "type": "File",
+        "doc": "path to file containing protein identifiers",
+        "default": {
+            "class": "File",
+            "path": "./input.txt"
+        }
+    }],
+    "outputs": [{
+        "id": "result",
+        "outputSource": ["sss/proteins"],
+        "type": "File",
+        "label": "Filtered sequences",
+        "doc": "Top X sequences"
+    }],
+    "steps": [{
+        "id": "adapter",
+        "in": [{
+            "id": "file",
+            "source": ["protein"]
+        }],
+        "out": [{
+            "id": "content"
+        }],
+        "run": "./adapter2.cwl"
+    }, {
+        "id": "sss",
+        "in": [{
+            "id": "sequence",
+            "source": ["adapter/content"]
+        }],
+        "out": [{
+            "id": "proteins"
+        }],
+        "run": "https://raw.githubusercontent.com/psafont/gluetools-cwl/master/ncbiblast/ncbiblast.cwl",
+        "label": "NCBI BLAST",
+        "doc": "Sequence similarity search"
+    }]
+}

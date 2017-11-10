@@ -1,0 +1,3 @@
+protein:
+    class: File
+    path: ./input.txt
