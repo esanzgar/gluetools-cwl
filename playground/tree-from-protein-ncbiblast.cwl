@@ -24,17 +24,27 @@ steps:
   sss:
     label: NCBI BLAST
     doc: Sequence similarity search
-    run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/ncbiblast/ncbiblast.cwl'
+    run: './webprod_ncbiblast/ncbiblast.cwl'
     in:
       sequence: protein
-    out: [proteins]
+#    out: [cwl_out]
+    out: [ids]
+
+#  adaptor:
+#    label: My adaptor
+#    doc: Sequence similarity search
+#    run: './webprod_ncbiblast/adaptor.cwl'
+#    in:
+#      files: sss/cwl_out
+#    out: [ids]
 
   sss-msa:
     label: Top 20 similar sequences
     doc: Use DbFetch to get the 20 top most similar sequences
     run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/workflows/fetch-proteins.cwl'
     in:
-      accessions: sss/proteins
+#      accessions: adaptor/ids
+      accessions: sss/ids
     out: [sequences]
 
   msa:
