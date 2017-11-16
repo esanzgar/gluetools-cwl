@@ -10,10 +10,10 @@ requirements:
 
 inputs:
   protein:
-      label: UniProt identifier
-      doc: Enter a UniProt identifier
-      default: uniprot:wap_rat
-      type: string?
+      type: File
+      default: 
+        class: File
+        path: P01308.fasta
 
   email:
       type: string
@@ -60,7 +60,7 @@ steps:
     doc: Sequence similarity search
     run: './webprod_ncbiblast/ncbiblast.cwl'
     in:
-      sequence: protein
+      sequence_file: protein
       email: email
       database: database
       stype: stype
