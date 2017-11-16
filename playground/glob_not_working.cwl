@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 label: Generate phylogenetic tree
-doc: Search for similar protein sequences using NCBI BLAST. The 20 top most similar sequences are aligned with Clustal Omega and feed to Simple Phylogeny tool.
+doc: Search for similar protein sequences using NCBI BLAST. The 20 top most similar sequences are aligned with Clustal Omega
 class: Workflow
 
 requirements:
@@ -10,10 +10,8 @@ requirements:
 
 inputs:
   protein:
-      label: UniProt identifier
-      doc: Enter a UniProt identifier
+      type: string
       default: uniprot:wap_rat
-      type: string?
 
   email:
       type: string
@@ -61,8 +59,8 @@ steps:
     out: [cwl_out]
 
   sss-msa:
-    label: Top 20 similar sequences
-    doc: Use DbFetch to get the 20 top most similar sequences
+    label: Top X similar sequences
+    doc: Use DBFetch to get the X top most similar sequences
     run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/workflows/fetch-proteins.cwl'
     in:
       numberAccessions: numberAccessions
