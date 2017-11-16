@@ -17,10 +17,15 @@ inputs:
     default: 'joonlee@ebi.ac.uk'
 
   sequence:
-    type: string
+    type: string?
     inputBinding:
       position: 3
       prefix: --sequence
+
+  sequence_file:
+    type: File
+    inputBinding:
+      position: 43
 
   program:
     type: string?
@@ -135,104 +140,104 @@ inputs:
     default: 0
 
 outputs:
-#  cwl_out:
-#    type: File[]
+  cwl_out:
+    type: File[]
+    streamable: true
+    outputBinding:
+      glob: "*"
+
+#  complete-visual-jpg:
+#    type: File
 #    streamable: true
 #    outputBinding:
-#      glob: "*"
-
-  complete-visual-jpg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.complete-visual-jpg.jpg"
-
-  complete-visual-png:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.complete-visual-png.png"
-
-  complete-visual-svg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.complete-visual-svg.svg"
-
-  ffdp-query-jpg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.ffdp-query-jpeg.jpg"
-
-  ffdp-query-png:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.ffdp-query-png.png"
-
-  ffdp-query-svg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.ffdp-query-svg.svg"
-
-  ffdp-subject-jpg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.ffdp-subject-jpeg.jpg"
-
-  ffdp-subject-png:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.ffdp-subject-png.png"
-
-  ffdp-subject-svg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.ffdp-subject-svg.svg"
-
-  ids:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.ids.txt"
-
-  out:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.out.txt"
-
-  sequence-out:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.sequence.txt"
-
-  visual-jpg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.visual-jpg.jpg"
-
-  visual-png:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.visual-png.png"
-
-  visual-svg:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.visual-svg.svg"
-
-  xml:
-    type: File
-    streamable: true
-    outputBinding:
-      glob: "*.xml.xml"
+#      glob: "*.complete-visual-jpg.jpg"
+#
+#  complete-visual-png:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.complete-visual-png.png"
+#
+#  complete-visual-svg:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.complete-visual-svg.svg"
+#
+#  ffdp-query-jpg:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.ffdp-query-jpeg.jpg"
+#
+#  ffdp-query-png:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.ffdp-query-png.png"
+#
+#  ffdp-query-svg:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.ffdp-query-svg.svg"
+#
+#  ffdp-subject-jpg:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.ffdp-subject-jpeg.jpg"
+#
+#  ffdp-subject-png:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.ffdp-subject-png.png"
+#
+#  ffdp-subject-svg:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.ffdp-subject-svg.svg"
+#
+#  ids:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.ids.txt"
+#
+#  out:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.out.txt"
+#
+#  sequence-out:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.sequence.txt"
+#
+#  visual-jpg:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.visual-jpg.jpg"
+#
+#  visual-png:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.visual-png.png"
+#
+#  visual-svg:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.visual-svg.svg"
+#
+#  xml:
+#    type: File
+#    streamable: true
+#    outputBinding:
+#      glob: "*.xml.xml"

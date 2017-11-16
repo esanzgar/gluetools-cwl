@@ -5,6 +5,8 @@ class: Workflow
 
 requirements:
   - class: SubworkflowFeatureRequirement
+  - class: StepInputExpressionRequirement
+  - class: InlineJavascriptRequirement
 
 inputs:
   protein:
@@ -20,6 +22,10 @@ outputs:
     type: File
     outputSource: phylogeny/tree
 
+  msa_out:
+    type: File
+    outputSource: msa/alignment
+
 steps:
   sss:
     label: NCBI BLAST
@@ -27,8 +33,8 @@ steps:
     run: './webprod_ncbiblast/ncbiblast.cwl'
     in:
       sequence: protein
-#    out: [cwl_out]
-    out: [ids]
+    out: [cwl_out]
+#    out: [ids]
 
 #  adaptor:
 #    label: My adaptor
@@ -44,7 +50,10 @@ steps:
     run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/workflows/fetch-proteins.cwl'
     in:
 #      accessions: adaptor/ids
-      accessions: sss/ids
+      accessions:
+          source: sss/cwl_out
+          valueFrom: |
+            $( self.filter(file => !!file.basename.match(/^.*\.ids\.txt$/)).pop() )
     out: [sequences]
 
   msa:
