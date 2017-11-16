@@ -36,19 +36,12 @@ inputs:
       default: '4'
 
 outputs:
-  tree:
-    label: Phylogenetic tree
-    doc: Newick format phylogenetic tree
-    type: File
-    outputSource: phylogeny/tree
 
-  sss_out:
-    type: File[]
-    outputSource: sss/cwl_out
 # This doesn't work
-#    type: File
-#    outputBinding:
-#        glob: "*.ids.txt"
+  sss_out:
+    type: File
+    outputBinding:
+        glob: "*.ids.txt"
 
   msa_out:
     type: File
@@ -58,7 +51,7 @@ steps:
   sss:
     label: NCBI BLAST
     doc: Sequence similarity search
-    run: './webprod_ncbiblast/ncbiblast.cwl'
+    run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/playground/webprod_ncbiblast/ncbiblast.cwl'
     in:
       sequence: protein
       email: email
@@ -66,15 +59,6 @@ steps:
       stype: stype
       program: program
     out: [cwl_out]
-#    out: [ids]
-
-#  adaptor:
-#    label: My adaptor
-#    doc: Sequence similarity search
-#    run: './webprod_ncbiblast/adaptor.cwl'
-#    in:
-#      files: sss/cwl_out
-#    out: [ids]
 
   sss-msa:
     label: Top 20 similar sequences
@@ -82,7 +66,6 @@ steps:
     run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/workflows/fetch-proteins.cwl'
     in:
       numberAccessions: numberAccessions
-#      accessions: adaptor/ids
       accessions:
           source: sss/cwl_out
           valueFrom: |
@@ -96,11 +79,3 @@ steps:
     in:
       sequences: sss-msa/sequences
     out: [alignment]
-
-  phylogeny:
-    label: Simple Phylogeny
-    doc: Generate phylogeny tree
-    run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/simple_phylogeny/simple_phylogeny.cwl'
-    in:
-      alignment: msa/alignment
-    out: [tree]
