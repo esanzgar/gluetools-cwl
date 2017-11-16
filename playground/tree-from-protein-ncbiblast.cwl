@@ -15,12 +15,40 @@ inputs:
       default: uniprot:wap_rat
       type: string?
 
+  email:
+      type: string
+      default: eduardo@ebi.ac.uk
+
+  program:
+      type: string
+      default: blastp
+
+  stype:
+      type: string
+      default: protein
+
+  database:
+      type: string
+      default: uniprotkb_swissprot
+
+  numberAccessions:
+      type: string
+      default: '4'
+
 outputs:
   tree:
     label: Phylogenetic tree
     doc: Newick format phylogenetic tree
     type: File
     outputSource: phylogeny/tree
+
+  sss_out:
+    type: File[]
+    outputSource: sss/cwl_out
+# This doesn't work
+#    type: File
+#    outputBinding:
+#        glob: "*.ids.txt"
 
   msa_out:
     type: File
@@ -33,6 +61,10 @@ steps:
     run: './webprod_ncbiblast/ncbiblast.cwl'
     in:
       sequence: protein
+      email: email
+      database: database
+      stype: stype
+      program: program
     out: [cwl_out]
 #    out: [ids]
 
@@ -49,6 +81,7 @@ steps:
     doc: Use DbFetch to get the 20 top most similar sequences
     run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/workflows/fetch-proteins.cwl'
     in:
+      numberAccessions: numberAccessions
 #      accessions: adaptor/ids
       accessions:
           source: sss/cwl_out

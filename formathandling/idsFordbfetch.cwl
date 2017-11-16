@@ -16,7 +16,7 @@ inputs:
     inputBinding:
       position: 1
   numberAccessions:
-    type: string
+    type: string?
     doc: Maximum number of records to fetch
     inputBinding:
       position: 2

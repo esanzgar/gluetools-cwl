@@ -9,135 +9,119 @@ hints:
 inputs:
 
   email:
-    type: string?
+    type: string
     doc: Submitter's email.
     inputBinding:
-      position: 2
+      position: 1
       prefix: --email
-    default: 'joonlee@ebi.ac.uk'
 
   sequence:
     type: string?
     inputBinding:
-      position: 3
+      position: 2
       prefix: --sequence
 
-  sequence_file:
-    type: File
-    inputBinding:
-      position: 43
-
   program:
-    type: string?
+    type: string
     inputBinding:
-      position: 8
+      position: 3
       prefix: --program
-    default: 'blastp'
 
   stype:
-    type: string?
+    type: string
     inputBinding:
-      position: 16
+      position: 4
       prefix: --stype
-    default: 'protein'
 
   database:
-    type: string?
+    type: string
     inputBinding:
-      position: 24
+      position: 5
       prefix: --database
-    default: 'uniprotkb_swissprot'
 
   title:
     type: string?
     inputBinding:
-      position: 28
+      position: 6
       prefix: --title
-    default: 'My blast'
+    default: My blast
 
   matrix:
     type: string?
     inputBinding:
-      position: 30
+      position: 7
       prefix: --matrix
-    default: 'BLOSUM62'
 
   alignments:
     type: int?
     inputBinding:
-      position: 31
+      position: 8
       prefix: --alignments
-    default: 50
 
   scores:
     type: int?
     inputBinding:
-      position: 32
+      position: 9
       prefix: --scores
-    default: 50
 
   exp:
     type: int?
     inputBinding:
-      position: 33
+      position: 10
       prefix: --exp
-    default: 10
 
   dropoff:
     type: int?
     inputBinding:
-      position: 34
+      position: 11
       prefix: --dropoff
-    default: 0
 
   gapopen:
     type: int?
     inputBinding:
-      position: 36
+      position: 12
       prefix: --gapopen
-    default: -1
 
   gapext:
     type: int?
     inputBinding:
-      position: 37
+      position: 13
       prefix: --gapext
-    default: -1
 
   filter:
     type: string?
     inputBinding:
-      position: 38
+      position: 14
       prefix: --filter
-    default: 'F'
 
   seqrange:
     type: string?
     inputBinding:
-      position: 39
+      position: 15
       prefix: --seqrange
-    default: 'START-END'
 
   gapalign:
     type: boolean?
     inputBinding:
-      position: 40
+      position: 16
       prefix: --gapalign
-    default: true
 
   compstats:
     type: string?
     inputBinding:
-      position: 41
+      position: 17
       prefix: --compstats
-    default: 'F'
 
   align:
     type: int?
     inputBinding:
-      position: 42
+      position: 18
       prefix: --align
-    default: 0
+
+  sequence_file:
+    type: File?
+    inputBinding:
+      position: 19
 
 outputs:
   cwl_out:
