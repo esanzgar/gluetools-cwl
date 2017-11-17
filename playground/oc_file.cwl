@@ -37,13 +37,14 @@ outputs:
 
 # This doesn't work
   sss_out:
-    type: File
+    type: File[]
+    outputSource: sss/cwl_out
     outputBinding:
         glob: "*.ids.txt"
 
-  msa_out:
-    type: File
-    outputSource: msa/alignment
+#  msa_out:
+#    type: File
+#    outputSource: msa/alignment
 
 steps:
   sss:

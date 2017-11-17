@@ -13,7 +13,9 @@ inputs:
       type: File
       default: 
         class: File
-        path: P01308.fasta
+        #path: https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/playground/P01308.fasta
+        #path: https://oc.ebi.ac.uk/s/yYTcW6n7hJSpMex/download
+        path: https://eduardo@ebi.ac.uk:/oc.ebi.ac.uk/remote.php/webdav/P01380.fasta
 
   email:
       type: string
