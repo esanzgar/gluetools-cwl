@@ -63,8 +63,8 @@ steps:
     out: [cwl_out]
 
   sss-msa:
-    label: Top 20 similar sequences
-    doc: Use DbFetch to get the 20 top most similar sequences
+    label: Top X similar sequences
+    doc: Use DBFetch to get the X top most similar sequences
     run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/workflows/fetch-proteins.cwl'
     in:
       numberAccessions: numberAccessions
