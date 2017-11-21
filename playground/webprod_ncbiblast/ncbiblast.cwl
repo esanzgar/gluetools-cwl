@@ -44,7 +44,6 @@ inputs:
     inputBinding:
       position: 6
       prefix: --title
-    default: My blast
 
   matrix:
     type: string?
@@ -118,110 +117,116 @@ inputs:
       position: 18
       prefix: --align
 
-  sequence_file:
-    type: File?
+  outformat:
+    type: string?
     inputBinding:
       position: 19
+      prefix: --outformat
+
+  input_file:
+    type: File?
+    inputBinding:
+      position: 20
 
 outputs:
-  cwl_out:
+  all_out:
     type: File[]
     streamable: true
     outputBinding:
       glob: "*"
 
-#  complete-visual-jpg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.complete-visual-jpg.jpg"
-#
-#  complete-visual-png:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.complete-visual-png.png"
-#
-#  complete-visual-svg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.complete-visual-svg.svg"
-#
-#  ffdp-query-jpg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.ffdp-query-jpeg.jpg"
-#
-#  ffdp-query-png:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.ffdp-query-png.png"
-#
-#  ffdp-query-svg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.ffdp-query-svg.svg"
-#
-#  ffdp-subject-jpg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.ffdp-subject-jpeg.jpg"
-#
-#  ffdp-subject-png:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.ffdp-subject-png.png"
-#
-#  ffdp-subject-svg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.ffdp-subject-svg.svg"
-#
-#  ids:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.ids.txt"
-#
-#  out:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.out.txt"
-#
-#  sequence-out:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.sequence.txt"
-#
-#  visual-jpg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.visual-jpg.jpg"
-#
-#  visual-png:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.visual-png.png"
-#
-#  visual-svg:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.visual-svg.svg"
-#
-#  xml:
-#    type: File
-#    streamable: true
-#    outputBinding:
-#      glob: "*.xml.xml"
+  out:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.out.txt"
+
+  sequence_out:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.sequence.txt"
+
+  ids:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.ids.txt"
+
+  xml:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.xml.xml"
+
+  visual-svg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.visual-svg.svg"
+
+  complete-visual-svg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.complete-visual-svg.svg"
+
+  visual-png:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.visual-png.png"
+
+  complete-visual-png:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.complete-visual-png.png"
+
+  visual-jpg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.visual-jpg.jpg"
+
+  complete-visual-jpg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.complete-visual-jpg.jpg"
+
+  ffdp-query-svg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.ffdp-query-svg.svg"
+
+  ffdp-query-png:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.ffdp-query-png.png"
+
+  ffdp-query-jpeg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.ffdp-query-jpeg.jpg"
+
+  ffdp-subject-svg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.ffdp-subject-svg.svg"
+
+  ffdp-subject-jpg:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.ffdp-subject-jpeg.jpg"
+
+  ffdp-subject-png:
+    type: File?
+    streamable: true
+    outputBinding:
+      glob: "*.ffdp-subject-png.png"
