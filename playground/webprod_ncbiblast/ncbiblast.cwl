@@ -138,7 +138,7 @@ inputs:
   input_file:
     type: File?
     inputBinding:
-      position: 23
+      position: 22
 
 
 outputs:

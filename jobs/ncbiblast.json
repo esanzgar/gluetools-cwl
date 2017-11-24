@@ -1,0 +1,7 @@
+{
+    "email": "ebi_tools_glue@ebi.ac.uk",
+    "database": "uniprotkb",
+    "sequence": "MALWTRLLPLLALLALWAPAPAQAFVNQHLCGSHLVEALYLVCGERGFFYTPKARREAENJ\nPQAGAVELGGGLGGLQALALEGPPQKRGIVEQCCTSICSLYQLENYCN",
+    "program": "blastp",
+    "stype": "protein"
+}
