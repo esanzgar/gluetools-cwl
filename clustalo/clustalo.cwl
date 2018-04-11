@@ -16,7 +16,6 @@ inputs:
     doc: Format of the output
     inputBinding:
       prefix: --outformat
-    default: aln-clustal
   outfile:
     type: string
     doc: Output file, use stdout by default.
