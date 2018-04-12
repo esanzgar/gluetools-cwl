@@ -2,7 +2,8 @@
 cwlVersion: v1.0
 class: ExpressionTool
 
-requirements: { InlineJavascriptRequirement: {} }
+requirements:
+    - class: InlineJavascriptRequirement
 
 inputs:
   file:

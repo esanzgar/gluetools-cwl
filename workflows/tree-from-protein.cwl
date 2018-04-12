@@ -7,7 +7,7 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  protein:
+  sequence:
       label: UniProt identifier
       doc: Enter a UniProt identifier
       default: uniprot:wap_rat
@@ -26,7 +26,7 @@ steps:
     doc: Sequence similarity search
     run: 'https://raw.githubusercontent.com/esanzgar/gluetools-cwl/master/ncbiblast/ncbiblast.cwl'
     in:
-      sequence: protein
+      sequence: sequence
     out: [proteins]
 
   sss-msa:

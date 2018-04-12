@@ -1,42 +1,48 @@
 cwlVersion: v1.0
-label: Generate phylogenetic tree
-doc: Search for similar protein sequences using NCBI BLAST. The 20 top most similar sequences are aligned with Clustal Omega and feed to Simple Phylogeny tool.
+label: Test CWL
+doc: Can I parse JSON?
 class: Workflow
 
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: StepInputExpressionRequirement
+  - class: InlineJavascriptRequirement
 
-inputs:
-  protein:
-      label: UniProt identifier
-      doc: Enter a UniProt identifier
-      default: uniprot:P01308
-      type: string?
+inputs: []
 
-outputs:
-  sequences:
-    label: List of sequences
-    doc: Then top sequences
-    type: File
-    outputSource: sss-msa/sequences
+outputs: []
 
 steps:
   sss:
     label: NCBI BLAST
     doc: Sequence similarity search
-    run: https://raw.githubusercontent.com/psafont/gluetools-cwl/master/ncbiblast/ncbiblast.cwl
+    run: https://raw.githubusercontent.com/common-workflow-language/cwltool/master/cwltool/schemas/draft-3/draft-3/echo-tool.cwl
     in:
-      sequence: protein
-    out: [proteins]
+      in:
+        default: test
+    out: [out]
 
-  sss-msa:
-    label: Top 20 similar sequences
-    doc: Use DbFetch to get the 20 top most similar sequences
-    run: https://raw.githubusercontent.com/psafont/gluetools-cwl/master/workflows/fetch-proteins.cwl
+  sss1:
+    label: NCBI BLAST
+    doc: Sequence similarity search
+    run: https://raw.githubusercontent.com/common-workflow-language/cwltool/master/cwltool/schemas/draft-3/draft-3/echo-tool.cwl
     in:
-      accessions: sss/proteins
-      numberAccessions:
-          default: '10'
-          # valueFrom: '1'
-    out: [sequences]
+      in: sss/out
+    out: [out]
+
+  sss2:
+    label: NCBI BLAST
+    doc: Sequence similarity search
+    run: https://raw.githubusercontent.com/common-workflow-language/cwltool/master/cwltool/schemas/draft-3/draft-3/echo-tool.cwl
+    in:
+      in:
+        default: chocolate
+    out: [out]
+
+  sss3:
+    label: NCBI BLAST
+    doc: Sequence similarity search
+    run: https://raw.githubusercontent.com/common-workflow-language/cwltool/master/cwltool/schemas/draft-3/draft-3/echo-tool.cwl
+    in:
+      in: sss2/out
+    out: [out]
