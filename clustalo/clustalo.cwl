@@ -12,11 +12,10 @@ inputs:
       prefix: --email
     default: workbench@ebi.ac.uk
   outformat:
-    type: string
+    type: string?
     doc: Format of the output
     inputBinding:
       prefix: --outformat
-    default: aln-clustal
   outfile:
     type: string
     doc: Output file, use stdout by default.
