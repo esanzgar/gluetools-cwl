@@ -19,8 +19,8 @@ inputs:
     type: string[]
     doc: Search terms
     inputBinding:
-      itemSeparator: " OR "
+      itemSeparator: " "
 
 outputs:
-  url_results:
+  results:
     type: stdout
