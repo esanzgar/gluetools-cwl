@@ -8,9 +8,9 @@ ROWS=2147483647
 #http "${URL}?q=(${query})&wt=json" > /dev/null && cat <<-END
 curl -f -s "${URL}?q=(${query})&wt=json" > /dev/null && cat <<-END
 {
- "all": "${URL}?q=(${query})&wt=json",
- "pdb_id": "${URL}?q=(${query})&wt=json&fl=pdb_id&rows=$ROWS",
- "uniprot_id": "${URL}?q=(${query})&wt=json&fl=uniprot_id&rows=$ROWS",
- "interacting_ligands": "${URL}?q=(${query})&wt=json&fl=interacting_ligands&rows=$ROWS"
+ "all": "${URL}?q=(${query})&wt=json&group=true&group.field=pdb_id&fl=pdb_id,entry_authors,title,status",
+ "pdb_id": "${URL}?q=(${query})&wt=json&fl=pdb_id&rows=$ROWS&group.field=pdb_id",
+ "uniprot_id": "${URL}?q=(${query})&wt=json&fl=uniprot_id&rows=$ROWS&group.field=pdb_id",
+ "interacting_ligands": "${URL}?q=(${query})&wt=json&fl=interacting_ligands&rows=$ROWS&group.field=pdb_id"
 }
 END
