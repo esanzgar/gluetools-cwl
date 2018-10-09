@@ -25,7 +25,6 @@ inputs:
     default: '-'
   sequences:
     type: File
-    format: http://edamontology.org/format_1929 # FASTA
     doc: Sequences to alineate.
     inputBinding:
       prefix: --sequence
